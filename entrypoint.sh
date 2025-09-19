@@ -7,7 +7,7 @@ set -eu
 args="$@"
 
 # Run the `drone-jenkins` command with the provided arguments and capture its output
-output=$(/bin/drone-jenkins $args 2>&1)
+output=$(/bin/drone-jenkins $args 2>&1 || true)
 
 # Check if the output contains the status codes 200 or 201
 if echo "$output" | grep -qE "200|201"; then
